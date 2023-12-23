@@ -3,6 +3,8 @@ import shutil
 from datetime import datetime
 import os
 
+backup_file_prefix = "Starcraft II"
+
 # Config
 with open('./config.json') as config_file:
     config = json.load(config_file)
@@ -10,12 +12,14 @@ with open('./config.json') as config_file:
     keep_amount = int(config['keepAmount'])
     starcraft_location = str(config['starcraftLocation'])
     if not os.path.isdir(backup_location):
-        raise Exception(backup_location + " ist kein Verzeichnis auf diesem System. Prüfe die config.json datei.")
+        raise Exception(backup_location + " Is not a directory in this file system. Check your config.json file.")
     if not os.path.isdir(starcraft_location):
-        raise Exception(starcraft_location + " ist kein Verzeichnis auf diesem System. Prüfe die config.json datei.")
+        raise Exception(starcraft_location + " Is not a directory in this file system. Check your config.json file.")
+
+print("Creating zip file")
 
 # Create zip file
-created_file = shutil.make_archive("Starcraft II_" + datetime.now().strftime('%Y%m%dT%H%M%S'), 'zip',
+created_file = shutil.make_archive(backup_file_prefix + "_" + datetime.now().strftime('%Y%m%dT%H%M%S'), 'zip',
                                    starcraft_location)
 print("Created " + created_file)
 
@@ -32,5 +36,7 @@ if keep_amount != 0:
         filtered.sort()
         to_delete = filtered[0:len(filtered) - keep_amount]
         for file in to_delete:
-            print('Deleting', file)
-            os.remove(file)
+            if os.path.basename(file).startswith(backup_file_prefix):
+                print('Deleting', file)
+                os.remove(file)
+
