@@ -32,7 +32,7 @@ Executing the script now from a terminal via `python main.pyw` will create a zip
 
 8. Go to "Actions"
 9. Press "New..." and select "start program"
-10. Enter the path to your python.exe under `Program/Script` (e.g. `C:\Users\user\AppData\Local\Programs\Python\Python311\pythonw.exe`)
+10. Enter the path to your pythonw.exe under `Program/Script` (e.g. `C:\Users\user\AppData\Local\Programs\Python\Python311\pythonw.exe`)
 11. Enter the path to the downloaded main.pyw under `arguments` (e.g. `C:\Users\user\PycharmProjects\sc2-backup\main.pyw`)
 12. Enter the path to the ❗***FOLDER*** ❗ that contains the downloaded program under `start in` (e.g. `C:\Users\user\PycharmProjects\sc2-backup\`) ❗this should be the same path that you entered last without `main.pyw`❗
 
