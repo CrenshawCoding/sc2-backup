@@ -17,10 +17,6 @@ def get_latest_backup():
         files.sort(reverse=True)
         return files[0]
 
-def files_are_the_same(a, b) -> bool:
-    return filecmp.cmp(a, b, False)
-
-
 backup_file_prefix = "Starcraft II"
 
 # Config
