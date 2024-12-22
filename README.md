@@ -5,7 +5,7 @@
 - An empty folder in your onedrive/google drive/dropbox/where ever that files can be moved to for backup.
 
 ## Installation
-1. Unzip the contents of the release somewhere of your chosing.
+1. Unzip the contents of the [release](https://github.com/CrenshawCoding/sc2-backup/releases/tag/1.1) somewhere of your chosing.
 2. Open the config.json
 3. Replace `path/to/backup/dir` with the path to your backup directory (e.g `C:/Users/user/OneDrive/Backup/starcraft`) ❗**This folder should be empty, as my script deletes things in there**
 4. Set `keep amount` to the number of backup files you want to keep at any time (older ones will be deleted when a new one is created)
