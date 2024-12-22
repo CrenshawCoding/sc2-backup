@@ -41,7 +41,7 @@ created_file = shutil.make_archive(backup_file_prefix + "_" + datetime.now().str
 print("Created " + created_file)
 
 # Abort if nothing has changed with the backup
-if get_latest_backup():
+if get_latest_backup() and os.path.isfile(get_latest_backup()):
     if filecmp.cmp(created_file, get_latest_backup(), False):
         print("Backup is identical to latest backup. Aborting.")
         os.remove(created_file)
