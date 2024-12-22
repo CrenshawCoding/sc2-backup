@@ -2,12 +2,16 @@ import json
 import shutil
 from datetime import datetime
 import os
+import pathlib
 
 backup_file_prefix = "Starcraft II"
 
+config_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "config.json")
+if not os.path.isfile(config_file):
+    raise Exception("Config file not found.", config_file)
 # Config
-with open('./config.json') as config_file:
-    config = json.load(config_file)
+with open(config_file) as file_content:
+    config = json.load(file_content)
     backup_location = str(config['backupLocation'])
     keep_amount = int(config['keepAmount'])
     starcraft_location = str(config['starcraftLocation'])
@@ -36,7 +40,7 @@ if keep_amount != 0:
         filtered.sort()
         to_delete = filtered[0:len(filtered) - keep_amount]
         for file in to_delete:
-            if os.path.basename(file).startswith(backup_file_prefix):
+            file_name = os.path.basename(file)
+            if file_name.startswith(backup_file_prefix) and file_name.endswith(".zip"):
                 print('Deleting', file)
                 os.remove(file)
-
