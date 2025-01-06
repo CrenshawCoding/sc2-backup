@@ -5,9 +5,9 @@
 
 ## Installation
 1. Download `sc2-backup.zip` from the [releases](https://github.com/CrenshawCoding/sc2-backup/releases) and unzip the contents somewhere of your chosing, e.g. somewhere in `C:\Program Files`.
-2. Open the `config.json` found in the unzipped directory.
+2. Open the `config.json` found in the unzipped directory with a text editor.
 ![img](https://i.imgur.com/WjcByOK.png)
-3. Replace `path/to/backup/dir` with the path to your backup directory (e.g `C:/Users/user/OneDrive/Backup/starcraft`) ❗**This folder should be empty, as my script deletes things in there**
+3. Replace `path/to/backup/dir` with the path to your backup directory (e.g `C:/Users/user/OneDrive/Backup/starcraft`) ❗**The slashes need to be forwards, not backwards. I.e. `/` not `\` **
 4. Set `keep amount` to the number of backup files you want to keep at any time (older ones will be deleted when a new one is created).
 5. Replace `path/to/documents/starcraft` with the path to your starcraft 2 documents folder (e.g. `C:/Users/user/Documents/StarCraft II`)
 6. Right-click the `sc2-backup.exe` and select "create shortcut".
