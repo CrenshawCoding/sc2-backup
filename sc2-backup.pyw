@@ -22,9 +22,11 @@ backup_file_prefix = "Starcraft II"
 # Config
 config_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "config.json")
 if not os.path.isfile(config_file):
-    raise Exception("Config file not found.", config_file)
-with open(config_file) as file_content:
-    config = json.load(file_content)
+    raise Exception("config.json not found. It should be next to this exe.", config_file)
+with open(config_file) as file:
+    content = file.read()
+    # some preprocessing for windows paths which cause invalid json
+    config = json.loads(content.replace("\\\\", "/").replace("\\", "/")) 
     backup_location = str(config['backupLocation'])
     keep_amount = int(config['keepAmount'])
     starcraft_location = str(config['starcraftLocation'])
